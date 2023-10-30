@@ -7,7 +7,10 @@ return {
   -- first key is the mode
   n = {
     -- second key is the lefthand side of the map
-    -- mappings seen under group name "Buffer"
+    ["<leader>lc"] = {
+      "<cmd>!cd ~/Documents/projects/lanterndb/build && C_INCLUDE_PATH=/usr/local/include CPLUS_INCLUDE_PATH=/usr/local/include cmake -DUSEARCH_NO_MARCH_NATIVE=ON -DCMAKE_BUILD_TYPE=Debug .. && C_INCLUDE_PATH=/usr/local/include CPLUS_INCLUDE_PATH=/usr/local/include  make install<cr>",
+      desc = "Build and install lantern",
+    }, -- mappings seen under group name "Buffer"
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
@@ -24,8 +27,8 @@ return {
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     ["<leader>wq"] = { "<cmd>wq<cr>", desc = "Save and close" },
     ["<leader>fg"] = { "<cmd>Telescope live_grep<cr>" }, -- telescope find files
-    [",p"] = { '"0p' }, -- paste from copy register
-    [",P"] = { '"0P' }, -- paste from copy register
+    [",p"] = { '"0p' },                                  -- paste from copy register
+    [",P"] = { '"0P' },                                  -- paste from copy register
   },
   v = {
     [",p"] = { '"0p' }, -- paste from copy register

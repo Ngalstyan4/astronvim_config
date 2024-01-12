@@ -27,8 +27,20 @@ return {
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     ["<leader>wq"] = { "<cmd>wq<cr>", desc = "Save and close" },
     ["<leader>fg"] = { "<cmd>Telescope live_grep<cr>" }, -- telescope find files
-    [",p"] = { '"0p' },                                  -- paste from copy register
-    [",P"] = { '"0P' },                                  -- paste from copy register
+    [",p"] = { '"0p' }, -- paste from copy register
+    [",P"] = { '"0P' }, -- paste from copy register
+    [":Ex"] = { ":e %:h", desc = { "Open current dir" } },
+    ["<leader>go"] = {
+      function() require("git-link.main").copy_line_url() end,
+      desc = { "Copy remote URL" },
+    },
+
+    ["<C-h>"] = { "<cmd>NvimTmuxNavigateLeft<cr>" },
+    ["<C-j>"] = { "<cmd>NvimTmuxNavigateDown<cr>" },
+    ["<C-k>"] = { "<cmd>NvimTmuxNavigateUp<cr>" },
+    ["<C-l>"] = { "<cmd>NvimTmuxNavigateRight<cr>" },
+    ["<C-\\>"] = { "<cmd>NvimTmuxNavigateLastActive<cr>" },
+    ["<C-Space>"] = { "<cmd>NvimTmuxNavigateNext<cr>" },
   },
   v = {
     [",p"] = { '"0p' }, -- paste from copy register

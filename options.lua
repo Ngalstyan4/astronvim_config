@@ -7,7 +7,11 @@ return {
     spell = false, -- sets vim.opt.spell
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
     wrap = false, -- sets vim.opt.wrap
-    mouse = "", -- disables mouse
+    -- mouse = "", -- disables mouse
+    -- code folding
+    foldenable = false,
+    foldexpr = "nvim_treesitter#foldexpr()", -- set Treesitter based folding
+    foldmethod = "expr",
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader

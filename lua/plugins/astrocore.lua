@@ -59,6 +59,12 @@ return {
           end,
           desc = "Close buffer from tabline",
         },
+        ["<Leader>fg"] = { "<cmd>Telescope live_grep<cr>" }, -- telescope find files
+        [":Ex"] = { ":e %:h", desc = { "Open current dir" } },
+        ["<Leader>go"] = {
+          function() require("git-link.main").copy_line_url() end,
+          desc = { "Copy remote URL" },
+        },
 
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus

@@ -10,7 +10,7 @@ return {
   opts = {
     -- Configure core features of AstroNvim
     features = {
-      large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
+      large_buf = { size = 1024 * 256, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
       autopairs = true, -- enable autopairs at start
       cmp = true, -- enable completion at start
       diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
@@ -58,10 +58,10 @@ return {
           desc = "Close buffer from tabline",
         },
         ["<Leader>fg"] = { "<cmd>Telescope live_grep<cr>" }, -- telescope find files
-        [":Ex"] = { ":e %:h", desc = { "Open current dir" } },
+        [":Ex"] = { ":e %:h", desc = "Open current dir" },
         ["<Leader>go"] = {
-          function() require("git-link.main").copy_line_url() end,
-          desc = { "Copy remote URL" },
+          function() vim.notify "todo:: install chosen github copier dependency" end,
+          desc = "Copy remote URL",
         },
 
         -- tables with just a `desc` key will be registered with which-key if it's installed

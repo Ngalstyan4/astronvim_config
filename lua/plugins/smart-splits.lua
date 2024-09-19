@@ -16,7 +16,6 @@ return {
         maps.n["<M-J>"] = { function() require("smart-splits").resize_down() end, desc = "Resize split down" }
         maps.n["<M-K>"] = { function() require("smart-splits").resize_left() end, desc = "Resize split left" }
         maps.n["<M-L>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" }
-        vim.notify "smart splits set!"
       end,
     },
   },

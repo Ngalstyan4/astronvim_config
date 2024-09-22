@@ -9,5 +9,10 @@ return {
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.pack.typescript" },
+
+  -- https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/pack/rust
+  --  NOTE: This pack DOES not add rust_analyzer. This should be managed by rustup.
+  --         To add it to rustup, run: rustup component add rust-analyzer
+  { import = "astrocommunity.pack.rust" },
   -- import/override with your plugins folder
 }

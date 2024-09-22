@@ -57,6 +57,11 @@ return {
           end,
           desc = "Close buffer from tabline",
         },
+        ["<Leader>lt"] = { -- lua vrite a function running the stirng below
+          -- "vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())",
+          function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
+          desc = "Toggle inlay hints",
+        },
         ["<Leader>fg"] = { "<cmd>Telescope live_grep<cr>" }, -- telescope find files
         [":Ex"] = { ":e %:h", desc = "Open current dir" },
         ["<Leader>go"] = {

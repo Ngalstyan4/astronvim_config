@@ -63,6 +63,15 @@ return {
           desc = "Toggle inlay hints",
         },
         ["<Leader>fg"] = { "<cmd>Telescope live_grep<cr>" }, -- telescope find files
+        -- remove default lsp mappings
+        ["gra"] = nil,
+        ["grn"] = nil,
+        ["grr"] = nil,
+        -- add telescope lsp reference finder mapping
+        ["gr"] = {
+          function() require("telescope.builtin").lsp_references() end,
+          desc = "Find References with Telescope",
+        },
         [":Ex"] = { ":e %:h", desc = "Open current dir" },
         ["<Leader>go"] = {
           function() vim.notify "todo:: install chosen github copier dependency" end,

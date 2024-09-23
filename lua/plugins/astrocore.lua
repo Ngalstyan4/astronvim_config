@@ -63,6 +63,21 @@ return {
           desc = "Toggle inlay hints",
         },
         ["<Leader>fg"] = { "<cmd>Telescope live_grep<cr>" }, -- telescope find files
+        ["<Leader>fG"] = {
+          function()
+            local ll = io.popen("rg --type-list | awk -F ':' '{print $1}'"):lines()
+            local tt = {}
+            for l in ll do
+              table.insert(tt, l)
+            end
+
+            vim.ui.select(tt, { prompt = "Enter file Type:" }, function(type_name)
+              if not type_name then return end
+              require("telescope.builtin").live_grep { type_filter = type_name }
+            end)
+          end,
+          desc = "Telescope live_grep for given file type",
+        },
         -- remove default lsp mappings
         ["gra"] = nil,
         ["grn"] = nil,

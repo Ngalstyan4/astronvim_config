@@ -92,7 +92,14 @@ return {
           function() vim.notify "todo:: install chosen github copier dependency" end,
           desc = "Copy remote URL",
         },
+        ["<Leader>lF"] = {
 
+          function()
+            vim.g.autoformat = not vim.g.autoformat
+            vim.notify("Autoformat: " .. (vim.g.autoformat and "enabled" or "disabled"))
+          end,
+          desc = "Toggle autoformat",
+        },
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         -- ["<Leader>b"] = { desc = "Buffers" },

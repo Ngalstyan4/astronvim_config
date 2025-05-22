@@ -18,6 +18,13 @@ return {
       },
       astrodark = { -- a table of overrides/changes when applying the astrotheme theme
         Normal = { bg = "#111111" },
+        -- TODO: There is some kind of nvim bug on linux when italic=true. Then, on linux fg and bg get reversed/inverted
+        -- use this to demonstrate an issue interactively
+        --  1. open a C file and write a comment line // comment
+        --  2. run :hi Comment gui=underline,italic,reverse
+        --  3. run some permutations of the above to see that italic comes with implicit reverse,
+        --    - that is removing reverse does not bring back the colors
+        Comment = { fg = "#aaaaaa", bg = "none", italic = false },
       },
     },
     -- Icons can be configured throughout the interface

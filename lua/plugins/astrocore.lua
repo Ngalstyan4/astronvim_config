@@ -65,6 +65,7 @@ return {
         ["<Leader>fg"] = { "<cmd>Telescope live_grep<cr>" }, -- telescope find files
         ["<Leader>fG"] = {
           function()
+            -- vim.ui.input({ prompt = "Enter file type:" }, function(type_name)
             local ll = io.popen("rg --type-list | awk -F ':' '{print $1}'"):lines()
             local tt = {}
             for l in ll do
@@ -79,9 +80,9 @@ return {
           desc = "Telescope live_grep for given file type",
         },
         -- remove default lsp mappings
-        ["gra"] = nil,
-        ["grn"] = nil,
-        ["grr"] = nil,
+        ["gra"] = false,
+        ["grn"] = false,
+        ["grr"] = false,
         -- add telescope lsp reference finder mapping
         ["gr"] = {
           function() require("telescope.builtin").lsp_references() end,
@@ -100,12 +101,18 @@ return {
           end,
           desc = "Toggle autoformat",
         },
+        ["<Leader>C"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" },
+
+        ["<Leader>rr"] = { "<cmd>RustLsp run<cr>", desc = "Run rust code" },
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         -- ["<Leader>b"] = { desc = "Buffers" },
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
+      },
+      x = {
+        ["gra"] = false,
       },
     },
   },

@@ -65,5 +65,11 @@ return {
     opts.openai_params = { model = model, max_tokens = 10000 }
     opts.openai_edit_params = { model = model, max_tokens = 10000 }
 
+    opts.chat = {
+      -- predefined_chat_gpt_prompts = "file:///" .. vim.fn.expand "~" .. "/.config/nvim/lua/plugins/prompts.txt",
+      openai_params = { model = model },
+      openai_edit_params = { model = model },
+      welcome_message = "NG's Custom ChatGPT Config Loaded",
+    }
   end,
 }

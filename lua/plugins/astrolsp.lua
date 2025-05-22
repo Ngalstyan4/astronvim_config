@@ -39,12 +39,13 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      "basepyright",
+      -- "pyright", -- not using pyright, using basepyright instead
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
       clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      vtsls = { settings = { vtsls = { experimental = { maxInlayHintLength = 30 } } } },
     },
     -- customize how language servers are attached
     handlers = {

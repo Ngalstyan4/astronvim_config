@@ -5,9 +5,6 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
-  { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.completion.copilot-lua" },
-  { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.pack.typescript" },
 
   -- https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/pack/rust
@@ -18,6 +15,9 @@ return {
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.python-ruff" },
+  { import = "astrocommunity.pack.html-css" },
+  { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.tailwindcss" },
 
   -- import/override with your plugins folder
 }

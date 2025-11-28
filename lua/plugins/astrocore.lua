@@ -37,6 +37,19 @@ return {
         -- This can be found in the `lua/lazy_setup.lua` file
       },
     },
+    -- Autocmds can be configured through AstroCore
+    autocmds = {
+      markdown_wrap = {
+        {
+          event = "FileType",
+          pattern = "markdown",
+          callback = function()
+            vim.opt_local.wrap = true
+            vim.opt_local.linebreak = true -- wrap at word boundaries, not mid-word
+          end,
+        },
+      },
+    },
     -- Mappings can be configured through AstroCore as well.
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {

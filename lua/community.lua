@@ -14,7 +14,11 @@ return {
 
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.cpp" },
-  { import = "astrocommunity.pack.python-ruff" },
+
+  -- Base pack with basedpyright, black and isort
+  { import = "astrocommunity.pack.python.base" },
+  { import = "astrocommunity.pack.python.basedpyright" },
+
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.tailwindcss" },

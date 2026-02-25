@@ -70,12 +70,15 @@ return {
           end,
           desc = "Close buffer from tabline",
         },
-        ["<Leader>lt"] = { -- lua vrite a function running the stirng below
-          -- "vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())",
+
+        ["<Leader>lt"] = {
           function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
           desc = "Toggle inlay hints",
         },
-        ["<Leader>fg"] = { "<cmd>Telescope live_grep<cr>" }, -- telescope find files
+
+        ["<Leader>fg"] = {
+          function() require("snacks").picker.grep() end,
+        },
         ["<Leader>fG"] = {
           function()
             -- vim.ui.input({ prompt = "Enter file type:" }, function(type_name)
@@ -87,19 +90,28 @@ return {
 
             vim.ui.select(tt, { prompt = "Enter file Type:" }, function(type_name)
               if not type_name then return end
-              require("telescope.builtin").live_grep { type_filter = type_name }
+              require("snacks").picker.grep { ft = type_name }
             end)
           end,
-          desc = "Telescope live_grep for given file type",
+          desc = "grep for given file type",
+        },
+        ["<Leader>fh"] = {
+          function() require("snacks").picker.search_history() end,
+        },
+        ["<Leader>ch"] = {
+          function() require("snacks").picker.command_history() end,
+        },
+        ["<Leader>uh"] = {
+          function() require("snacks").picker.undo() end,
         },
         -- remove default lsp mappings
         ["gra"] = false,
         ["grn"] = false,
         ["grr"] = false,
-        -- add telescope lsp reference finder mapping
+        -- add picker lsp reference finder mapping
         ["gr"] = {
-          function() require("telescope.builtin").lsp_references() end,
-          desc = "Find References with Telescope",
+          function() require("snacks").picker.lsp_references() end,
+          desc = "Find References with Picker",
         },
         [":Ex"] = { ":e %:h", desc = "Open current dir" },
         ["<Leader>go"] = {

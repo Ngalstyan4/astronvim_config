@@ -19,5 +19,6 @@ return {
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.tailwindcss" },
 
+  { import = "astrocommunity.pack.lua" },
   -- import/override with your plugins folder
 }

@@ -46,6 +46,26 @@ return {
     config = {
       clangd = { capabilities = { offsetEncoding = "utf-8" } },
       vtsls = { settings = { vtsls = { experimental = { maxInlayHintLength = 30 } } } },
+      lua_ls = {
+        settings = {
+          Lua = {
+            runtime = {
+              version = "LuaJIT",
+              path = vim.split(package.path, ";"),
+            },
+            diagnostics = {
+              globals = { "vim" },
+            },
+            workspace = {
+              library = { vim.env.VIMRUNTIME },
+              checkThirdParty = false,
+            },
+            telemetry = {
+              enable = false,
+            },
+          },
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {
